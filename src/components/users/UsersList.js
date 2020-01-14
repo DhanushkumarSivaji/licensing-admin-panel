@@ -105,7 +105,7 @@ const UserDetail = () => {
       </div>
     </div>
   </section>
-<Footer/>
+
     </div>
   )
 }

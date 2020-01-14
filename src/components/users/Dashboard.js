@@ -8,8 +8,10 @@ const Dashboard = () => {
     return (
         <div>
             <Navbar/>
-            <FloatingActionButton/>
-           <section className="section section-stats center">
+            
+    <div >
+    <FloatingActionButton/>
+    <section className="section section-stats center">
     <div className="row">
       <div className="col s12 m6 l3">
         <div className="card-panel blue lighten-1 white-text center">
@@ -172,7 +174,9 @@ const Dashboard = () => {
       </div>
     </div>
   </section>
-  <Footer/>   
+  
+        </div>
+        <Footer/>  
         </div>
     )
 }
