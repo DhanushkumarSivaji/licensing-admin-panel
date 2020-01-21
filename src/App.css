@@ -46,3 +46,10 @@
   color: #d847f1;
   font-weight: bold;
 }
+
+.footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
