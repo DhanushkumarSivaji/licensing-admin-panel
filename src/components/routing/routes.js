@@ -10,6 +10,9 @@ import Dashboard from "../users/Dashboard";
 import UserDetail from "../users/UserDetail";
 import test from '../auth/test'
 import test1 from '../auth/test1'
+import test2 from '../auth/test2'
+import Form from '../Form/form'
+import Hooks from '../hooksForm/HooksForm'
 
 
 // import PrivateRoute from "./PrivateRoute";
@@ -25,8 +28,9 @@ const Routes = () => {
           <Route exact path="/users" component={UserList} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/userdetail" component={UserDetail} />
-          <Route exact path="/test" component={test} />
+          <Route exact path="/test" component={Hooks} />
           <Route exact path="/test1" component={test1} />
+          <Route exact path="/test2" component={test2} />
           
           {/* <Route exact path="/register" component={Register} />
           <Route exact path="/forgetpassword" component={ForgetPassword} />
