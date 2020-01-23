@@ -2,12 +2,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 const test = () => {
-  const { handleSubmit, register, errors,watch } = useForm();
-
+  const { handleSubmit, register, errors, watch } = useForm({
+    mode: "onChange"
+  });
+  console.log("errors",errors)
 
 
   const onSubmit = values => {
-    console.log(values.email,values.password);
+    alert(JSON.stringify(values))
   };
   return (
     <div>
@@ -35,16 +37,18 @@ const test = () => {
                     type="email"
                     name="email"
                     id="email"
+                    autoComplete = "off"
+                    className = {errors.email ? ("invalid"):("valid-field")}
                     ref={register({
-                      required: "Required",
+                      required: "This field is required.",
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                        message: "invalid email address"
+                        message: "Please enter a valid email address."
                       }
                     })}
                   />
-                  <label htmlFor="email">Enter email</label>
-                  {errors.email && <span class="helper-text" data-error="wrong">{errors.email.message}</span>}
+                  <label htmlFor="email" >Enter email</label>
+                  {errors.email && <span class="helper-text">{errors.email.message}</span>}
                 </div>
 
                 <div class="input-field">
@@ -53,32 +57,20 @@ const test = () => {
                     type="password"
                     name="password"
                     id="password"
+                    className = {errors.password ? ("invalid"):("valid-field")}
                     ref={register({
-                      required: "Required",
+                      required: "This field is required.",
                       pattern: {
                         value: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/,
-                        message: "invalid password"
+                        message: "Please enter a valid password."
                       }
                     })}
                   />
                   <label htmlFor="password">Enter password</label>
-                  {errors.password && <span class="helper-text" data-error="wrong">{errors.password.message}</span>}
+                  {errors.password && <span class="helper-text" >{errors.password.message}</span>}
                 </div>
 
-                <div class="input-field">
-                  <i class="material-icons prefix">vpn_key</i>
-                  <input
-                    type="password"
-                    name="password2"
-                    id="password2"
-                    ref={register({
-                        validate: (value) => value === watch('password')
-                      })
-                    }
-                  />
-                  <label htmlFor="password2">Confirm password</label>
-                  {errors.password2 && <span class="helper-text" data-error="wrong">Password mismatch</span>}
-                </div>
+         
 
                 <p style={{ marginLeft: "6px" }}>
                   <label>
