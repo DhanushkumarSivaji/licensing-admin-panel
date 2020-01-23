@@ -1,17 +1,21 @@
 import React, { useState,useEffect } from "react";
 import { connect } from 'react-redux';
 import Footer from '../layout/Footer'
-import {loginUserRequest, loginUserSucess} from '../../actions/auth';
-const Login = ({loginUserRequest}) => {
+import {loginUserRequest} from '../../actions/auth';
+
+
+const Login = ({loginUserRequest,isAuthenticated,history}) => {
   const [user, setUser] = useState({
-    email: '',
-    password: '',
+    email: 'dhanushkumarstudy@gmail.com',
+    password: '123456',
   });
   useEffect(() => {
 
-
+  if(isAuthenticated){
+    history.push('/dashboard')
+  }
     // eslint-disable-next-line
-  }, []);
+  }, [isAuthenticated]);
 
   const { email, password } = user;
 
@@ -84,9 +88,8 @@ const Login = ({loginUserRequest}) => {
   );
 };
 
-// const mapStateToProps = (state) => ({
-//   isAuthenticated: state.login.isAuthenticated,
-//   error: state.login.error,
-// }); 
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated
+}); 
 
-export default connect(null, { loginUserRequest })(Login);
+export default connect(mapStateToProps, { loginUserRequest })(Login);

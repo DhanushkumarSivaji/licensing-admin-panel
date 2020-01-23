@@ -5,9 +5,7 @@ import * as api from '../api/auth';
 function* login(action){
     try{
         const result = yield call(api.loginUser,action.payload);
-        yield put(actions.loginUserSucess({
-            items: result.data.token
-        }))
+        yield put(actions.loginUserSucess(result.data.token))
     }catch(e){
 
     }

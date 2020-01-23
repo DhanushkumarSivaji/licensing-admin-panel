@@ -2,7 +2,7 @@ import {Types} from '../actions/auth';
 
 const INITIAL_STATE = {
     token: localStorage.getItem('token'),
-    isAuthenticated: null,
+    isAuthenticated: false,
     isLoading: false,
     user: null,
     error: null,
@@ -13,7 +13,7 @@ const INITIAL_STATE = {
 export default function users(state = INITIAL_STATE, action) {
     switch (action.type) {
      
-        case Types.LOGIN_USER_REQUEST:{
+        case Types.GET_USERS_SUCCESS:{
             localStorage.setItem('token', action.payload);
             console.log("reducers",action)
             return {

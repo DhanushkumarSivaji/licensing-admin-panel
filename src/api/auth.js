@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const loginUser = (userData) => {
-    console.log(userData)
+    let data = JSON.stringify(userData)
     const config = {
         headers: {
           'Content-Type': 'application/json',
@@ -10,5 +10,5 @@ export const loginUser = (userData) => {
     
    
     
-    return axios.post('/auth', userData.payload, config)
+    return axios.post('/auth',data, config)
 }

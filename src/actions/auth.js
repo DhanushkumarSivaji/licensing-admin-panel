@@ -1,5 +1,6 @@
 export const Types = {
-	LOGIN_USER_REQUEST: 'LOGIN_USER_REQUEST',
+    LOGIN_USER_REQUEST: 'LOGIN_USER_REQUEST',
+    GET_USERS_SUCCESS:'GET_USERS_SUCCESS'
 };
 
 export const loginUserRequest = ({email,password}) => (
